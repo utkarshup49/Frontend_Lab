@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Dashes Between Even Numbers</title>
+</head>
+<body>
+    <script>
+        // Accept input as a string
+        let num = prompt("Enter a number:");
+
+        let result = num[0];
+
+        for (let i = 1; i < num.length; i++) {
+            // Check if both current and previous digits are even
+            if (num[i - 1] % 2 === 0 && num[i] % 2 === 0) {
+                result += "-";
+            }
+            result += num[i];
+        }
+
+        document.write("Output: " + result);
+    </script>
+</body>
+</html>
