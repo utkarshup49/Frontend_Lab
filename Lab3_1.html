@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>1. Get Last n Elements of Array</h3>
+<p id="o1"></p>
+
+<h3>2. Recursive Factorial</h3>
+<p id="o2"></p>
+
+<h3>3. Sum of Array Using Loop</h3>
+<p id="o3"></p>
+
+<h3>4. Array Using Literal and Constructor</h3>
+<p id="o4"></p>
+
+<h3>5. Right Rotate Array</h3>
+<p id="o5"></p>
+
+<script>
+    // 1
+    function last(a,n=1){
+        return n==1 ? a[a.length-1] : a.slice(-n);
+    }
+    let a=[10,20,30,40,50];
+    o1.innerHTML="Last: "+last(a)+"<br>Last 3: "+last(a,3);
+
+    // 2
+    function fact(n){
+        return n<=1 ? 1 : n*fact(n-1);
+    }
+    o2.innerHTML="Factorial: "+fact(5);
+
+    // 3
+    let b=[10,20,30,40], sum=0;
+    for(let x of b) sum+=x;
+    o3.innerHTML="Sum: "+sum;
+
+    // 4
+    let x=[1,2,3];
+    let y=new Array(4,5,6);
+    o4.innerHTML="Literal: "+x+"<br>Constructor: "+y;
+
+    // 5
+    function rotate(a,r){
+        r%=a.length;
+        return a.slice(-r).concat(a.slice(0,-r));
+    }
+    let z=[1,2,3,4,5];
+    o5.innerHTML="Original: "+z+
+        "<br>2 Rotations: "+rotate(z,2);
+</script>
+
+</body>
+</html>

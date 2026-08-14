@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>1. First and Last Item</h3>
+<button onclick="firstLast()">Show</button>
+<p id="o1"></p>
+
+<h3>2. Add Element at Beginning</h3>
+<button onclick="addFirst()">Add</button>
+<p id="o2"></p>
+
+<h3>3. Remove Element</h3>
+<button onclick="remove()">Remove</button>
+<p id="o3"></p>
+
+<h3>4. Reverse an Array</h3>
+<button onclick="reverse()">Reverse</button>
+<p id="o4"></p>
+
+<h3>5. Empty an Array</h3>
+<button onclick="empty()">Empty</button>
+<p id="o5"></p>
+
+<h3>6. Check Value in Array</h3>
+<input id="val">
+<button onclick="check()">Check</button>
+<p id="o6"></p>
+
+<h3>7. Insert at Specific Index</h3>
+<input id="item" placeholder="Item">
+<input id="index" placeholder="Index">
+<button onclick="insert()">Insert</button>
+<p id="o7"></p>
+
+<h3>8. Number to Array</h3>
+<input id="num">
+<button onclick="toArray()">Convert</button>
+<p id="o8"></p>
+
+<h3>9. Sum of Array Elements</h3>
+<button onclick="sum()">Find Sum</button>
+<p id="o9"></p>
+
+<h3>10. Sort Words Alphabetically</h3>
+<button onclick="sortWords()">Sort</button>
+<p id="o10"></p>
+
+<script>
+    // 1
+    function firstLast(){
+        let a=[10,20,30,40];
+        o1.innerHTML="First: " + a[0] + " Last: " + a.at(-1);
+    }
+
+    // 2
+    function addFirst(){
+        let a=[20,30,40];
+        a.unshift(10);
+        o2.innerHTML=a;
+    }
+
+    // 3
+    function remove(){
+        let a=[10,20,30,40];
+        a.pop();
+        o3.innerHTML=a;
+    }
+
+    // 4
+    function reverse(){
+        let a=[1,2,3,4,5];
+        o4.innerHTML=a.reverse();
+    }
+
+    // 5
+    function empty(){
+        let a=[1,2,3,4];
+        a.length=0;
+        o5.innerHTML="Array: ["+a+"]";
+    }
+
+    // 6
+    function check(){
+        let a=[10,20,30,40];
+        o6.innerHTML=a.includes(+val.value)?"Found":"Not Found";
+    }
+
+    // 7
+    function insert(){
+        let a=[10,20,30,40];
+        a.splice(+index.value,0,item.value);
+        o7.innerHTML=a;
+    }
+
+    // 8
+    function toArray(){
+        let a=String(num.value).split("").map(Number);
+        o8.innerHTML=a;
+    }
+
+    // 9
+    function sum(){
+        let a=[10,20,30,40],s=0;
+        for(let x of a) s+=x;
+        o9.innerHTML="Sum: "+s;
+    }
+
+    // 10
+    function sortWords(){
+        let a=["Mango","Apple","Orange","Banana"];
+        o10.innerHTML=a.sort();
+    }
+</script>
+
+</body>
+</html>
