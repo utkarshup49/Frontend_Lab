@@ -17,38 +17,167 @@
 <h3>5. Right Rotate Array</h3>
 <p id="o5"></p>
 
+<h3>6. Most Frequent Item in an Array</h3>
+<p id="o6"></p>
+
+<h3>7. Add Items to a Blank Array</h3>
+<p id="o7"></p>
+
+<h3>8. Remove Duplicate Items (Ignore Case)</h3>
+<p id="o8"></p>
+
+<h3>9. Use map(), filter(), reduce()</h3>
+<p id="o9"></p>
+
+<h3>10. Sort Student Marks in Descending Order</h3>
+<p id="o10"></p>
+
+<h3>11. Create and Access 2D Array (Matrix)</h3>
+<p id="o11"></p>
+
 <script>
-    // 1
-    function last(a,n=1){
-        return n==1 ? a[a.length-1] : a.slice(-n);
+    // 1. Get Last n Elements
+    function last(a, n = 1) {
+        return n == 1 ? a[a.length - 1] : a.slice(-n);
     }
-    let a=[10,20,30,40,50];
-    o1.innerHTML="Last: "+last(a)+"<br>Last 3: "+last(a,3);
 
-    // 2
-    function fact(n){
-        return n<=1 ? 1 : n*fact(n-1);
+    let a = [10, 20, 30, 40, 50];
+
+    o1.innerHTML = "Last: " + last(a) +
+        "<br>Last 3: " + last(a, 3);
+
+
+    // 2. Recursive Factorial
+    function fact(n) {
+        return n <= 1 ? 1 : n * fact(n - 1);
     }
-    o2.innerHTML="Factorial: "+fact(5);
 
-    // 3
-    let b=[10,20,30,40], sum=0;
-    for(let x of b) sum+=x;
-    o3.innerHTML="Sum: "+sum;
+    o2.innerHTML = "Factorial: " + fact(5);
 
-    // 4
-    let x=[1,2,3];
-    let y=new Array(4,5,6);
-    o4.innerHTML="Literal: "+x+"<br>Constructor: "+y;
 
-    // 5
-    function rotate(a,r){
-        r%=a.length;
-        return a.slice(-r).concat(a.slice(0,-r));
+    // 3. Sum of Array Using Loop
+    let b = [10, 20, 30, 40];
+    let sum = 0;
+
+    for (let x of b) {
+        sum += x;
     }
-    let z=[1,2,3,4,5];
-    o5.innerHTML="Original: "+z+
-        "<br>2 Rotations: "+rotate(z,2);
+
+    o3.innerHTML = "Sum: " + sum;
+
+
+    // 4. Array Using Literal and Constructor
+    let x = [1, 2, 3];
+    let y = new Array(4, 5, 6);
+
+    o4.innerHTML = "Literal: " + x +
+        "<br>Constructor: " + y;
+
+
+    // 5. Right Rotate Array
+    function rotate(a, r) {
+        r %= a.length;
+        return a.slice(-r).concat(a.slice(0, -r));
+    }
+
+    let z = [1, 2, 3, 4, 5];
+
+    o5.innerHTML = "Original: " + z +
+        "<br>2 Rotations: " + rotate(z, 2);
+
+
+    // 6. Find Most Frequent Item in Array
+    let arr = [1, 2, 2, 3, 2, 4, 3];
+
+    let frequency = {};
+    let maxCount = 0;
+    let mostFrequent;
+
+    for (let item of arr) {
+        frequency[item] = (frequency[item] || 0) + 1;
+
+        if (frequency[item] > maxCount) {
+            maxCount = frequency[item];
+            mostFrequent = item;
+        }
+    }
+
+    o6.innerHTML = "Array: " + arr +
+        "<br>Most Frequent Item: " + mostFrequent +
+        "<br>Frequency: " + maxCount;
+
+
+    // 7. Add Items to a Blank Array
+    let items = [];
+
+    items.push("Apple");
+    items.push("Banana");
+    items.push("Mango");
+    items.push("Orange");
+
+    o7.innerHTML = "Items: " + items.join(", ");
+
+
+    // 8. Remove Duplicate Items (Ignore Case)
+    let fruits = [
+        "Apple",
+        "apple",
+        "Banana",
+        "BANANA",
+        "Mango",
+        "mango"
+    ];
+
+    let unique = fruits.filter((item, index, array) =>
+        array.map(x => x.toLowerCase())
+            .indexOf(item.toLowerCase()) === index
+    );
+
+    o8.innerHTML = "Original: " + fruits.join(", ") +
+        "<br>Without Duplicates: " + unique.join(", ");
+
+
+    // 9. map(), filter(), reduce()
+    let numbers = [1, 2, 3, 4, 5];
+
+    // map() - multiply each number by 2
+    let mapped = numbers.map(n => n * 2);
+
+    // filter() - get even numbers
+    let filtered = numbers.filter(n => n % 2 === 0);
+
+    // reduce() - find sum
+    let reduced = numbers.reduce((total, n) => total + n, 0);
+
+    o9.innerHTML = "Original: " + numbers +
+        "<br>map() x 2: " + mapped +
+        "<br>filter() Even: " + filtered +
+        "<br>reduce() Sum: " + reduced;
+
+
+    // 10. Sort Student Marks in Descending Order
+    let marks = [78, 95, 67, 88, 92, 75];
+
+    let sortedMarks = marks.slice().sort((a, b) => b - a);
+
+    o10.innerHTML = "Original Marks: " + marks +
+        "<br>Descending Order: " + sortedMarks;
+
+
+    // 11. Create and Access 2D Array (Matrix)
+    let matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+
+    o11.innerHTML =
+        "Matrix:<br>" +
+        matrix[0].join(" ") + "<br>" +
+        matrix[1].join(" ") + "<br>" +
+        matrix[2].join(" ") + "<br><br>" +
+        "Element at row 2, column 3: " + matrix[1][2];
+
 </script>
 
 </body>
